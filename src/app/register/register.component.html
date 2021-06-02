@@ -1,0 +1,42 @@
+<div class="login"></div>
+
+<div class="wrapper"> <!-- Wrapper pour centrer le contenu qui a une longueur de 1240px avec un fond bleu foncé -->
+  <!-- Animation globale à toutes les pages, une série de petites étoiles grossissants et rétrécissants en arrière plan, pour représenter un ciel étoilé, sans que ce soit non plus trop choquant pour l'oeil  -->
+
+  <div class='star d1'></div>
+  <div class='star d2'></div>
+  <div class='star d3'></div>
+  <div class='star d6'></div>
+  <div class='star d16'></div>
+
+<h2 class="top-login text-center">Enregistrer un nouvel administrateur</h2>
+
+  <div class="row">
+    <div class="col-md-3"></div>
+      <div class="col-md-6 col-md-offset-3">
+        <div class="jumbotron">
+          <form [formGroup]="angForm" (ngSubmit)="postdata(angForm)" autocomplete="off" >
+            <div class="form-group">
+              <label>Nom</label>
+                <input type="text" name="name" formControlName="name" autocomplete="off" class="form-control input-sm" placeholder="Nom..">
+            </div>
+
+            <div class="form-group">
+              <label>E-mail</label>
+                <input type="email" name="email" formControlName="email" autocomplete="off" class="form-control input-sm" placeholder="E-mail..">
+            </div>
+
+            <div class="form-group">
+              <label>Mot de passe</label>
+                <input type="password" name="Password" formControlName="password" autocomplete="off" class="form-control input-sm" placeholder="Mot de passe..">
+             </div>
+
+                <button type="submit" class="btn btn-success" >S'enregistrer</button>
+          </form>
+
+        </div>
+      </div>
+    <div class="col-md-3"></div>
+  </div>
+
+</div>
