@@ -1,0 +1,858 @@
+
+/* -------------  ANIMATION ------------- */
+
+
+ @keyframes size{ /* Animation pour la pulsation des étoiles */
+     50%{
+        padding: 4px ;
+    }
+}
+
+@keyframes apparition { /* Animation pour faire disparaitre les étoiles sur la page d'index tant que l'animation a lieu */
+    0%{ opacity: 0% ;
+
+    }
+    90%{ opacity: 0% ;
+
+    }
+    100%{ opacity: 100% ;
+
+    }
+}
+
+.star{ /* Caractéristiques des étoiles */
+    width: 16px;
+    height: 16px;
+    background-image: url(/assets/img/star.png);
+    background-repeat: repeat ;
+    background-size: cover ;
+    margin: 120px 0 0 440px;
+    position: absolute ;
+    z-index: 0 ;
+    animation-name: size;
+    animation-duration: 5s;
+    animation-iteration-count: infinite ;
+}
+
+.appear{ /* Informations complémentaires pour l'animation de disparition des étoiles */
+    animation-name: apparition ;
+    animation-duration: 11s ;
+    animation-delay: -1s ;
+    animation-iteration-count: 1 ;
+}
+
+/* Position de toutes les étoiles une par une et ajout d'un délai sur la moitié d'entre elle */
+
+ .d2, .d4, .d6, .d8, .d10, .d12, .d14, .d16, .d18, .d20{
+    animation-delay: -2.5s ;
+}
+.d1{
+    top: 380px ;
+    left: -140px ;
+}
+.d2{
+    top: 20px ;
+    left: -60px ;
+}
+.d3{
+    top: 200px ;
+    left: 960px ;
+}
+.d4{
+    top: 120px ;
+    left: 300px ;
+}
+.d5{
+    top: 740px ;
+    left: 1100px ;
+}
+.d6{
+    top: 400px ;
+    left: 740px ;
+}
+.d7{
+    top: 800px ;
+    left: 460px ;
+}
+.d8{
+    top: 1300px ;
+    left: 0px ;
+}
+.d9{
+    top: 1000px ;
+    left: 900px ;
+}
+.d10{
+    top: 60px ;
+    left: 700px ;
+}
+.d11{
+    top: 560px ;
+    left: 900px ;
+}
+.d12{
+    top: 920px ;
+    left: 20px ;
+}
+.d13{
+    top: 1280px ;
+    left: 750px ;
+}
+.d14{
+    top: 1150px ;
+    left: 500px ;
+}
+.d15{
+    top: 960px ;
+    left: 50px ;
+}
+.d16{
+    top: 300px ;
+    left: 1300px ;
+}
+.d17{
+    top: 1080px ;
+    left: 1300px ;
+}
+.d18{
+    top: 1380px ;
+    left: 1000px ;
+}
+.d19{
+    top: 1400px ;
+    left: 420px ;
+}
+.d20{
+    top: 1300px ;
+    left: 1200px ;
+}
+
+
+ @keyframes color-swap { /* Changement de couleur de l'accueil */
+    0% {
+        background-color: #fab52d ;
+}
+    25%{
+        background-color: #e94805 ;
+}
+    50%{
+        background-color: #85230d ;
+}
+    75%{
+        background-color: #2e1314 ;
+}
+    100%{
+        background-color: #072a34 ;
+    }
+}
+
+@keyframes sun { /* Déplacement du soleil sur l'index */
+
+    0% {
+        transform: translate(0,-1000px) ;
+        padding: 200px ;
+    }
+    75% {
+        padding: 0 ;
+    }
+
+    100% {
+        transform: translate(0,0px) ;
+    }
+}
+
+@keyframes transl{ /* Déplacement du décors sur l'index */
+
+    0% {
+        opacity: 100% ;
+        transform: translate(0,-920px) ;
+        padding: 150px ;
+    }
+    50% {
+        opacity: 100% ;
+        transform: translate(0,-700px) ;
+        padding: 0 ;
+    }
+    75%{
+        opacity: 0% ;
+    }
+
+    100% {
+        opacity: 0% ;
+        transform: translate(0,0px) ;
+
+    }
+}
+
+@keyframes hide  { /* Apparition d'un petit filtre sur le logo pour que sa couleur ne jure pas durant l'animation de l'index */
+    0% {
+        background-color: rgb(250, 181, 45) ;
+        opacity: 50%;
+}
+    25%{
+        background-color: rgba(233, 72, 5, 0.7) ;
+        opacity: 65%;
+}
+    50%{
+        background-color: rgba(133, 35, 13, 0.5) ;
+        opacity: 80%;
+}
+    75%{
+        background-color: rgba(46, 19, 20, 0.3) ;
+        opacity: 95%;
+}
+    100%{
+        background-color: rgba(46, 19, 20, 0.0) ;
+    }
+}
+
+
+.sundown{
+    animation: color-swap 11s ;
+    height: 890px;
+}
+
+/* Informations pour les images exclusives à l'index, utilisées pour les animations */
+
+.img-sun{
+    pointer-events: none;
+    background-size: cover;
+    background-repeat: no-repeat ;
+    width: 380px;
+    height: 380px ;
+    margin: 2px 0 0 402px ;
+    position: absolute;
+    opacity: 0% ;
+    animation: hide 12s ;
+}
+.sun{
+        pointer-events: none;
+        margin: 0 ;
+        padding: 0 ;
+        background-image: url(assets/img/ombral-1.png);
+        background-repeat: no-repeat ;
+        background-size: cover ;
+        width: 1540px ;
+        height: 930px ;
+        position: fixed ;
+        top: 900px;
+        left: 0 ;
+        z-index: 0;
+        animation: sun 12s ;
+}
+
+.translate{
+        pointer-events: none;
+        margin: 0 ;
+        padding: 0 ;
+        background-image: url(assets/img/ombral-2.png);
+        background-repeat: no-repeat ;
+        background-size: cover ;
+        width: 1900px ;
+        height: 930px ;
+        position: fixed ;
+        top: 900px;
+        left: 0 ;
+        z-index: 0;
+        animation: transl 24s ;
+}
+
+
+/* -------------  GLOBAL ------------- */
+
+.wrapper{    /* Wrapper pour la page */
+	width: 1240px ;
+	margin: auto;
+
+}
+
+body{ /* Mise à 0 des margins et du padding de base */
+    margin: 0 auto ;
+    padding: 0  ;
+}
+
+html{
+    background-color: rgb(7, 42, 52) ;  /* Couleur du fond de la page  */
+}
+
+section{
+    float: left ; /* Pour avoir toujours un rangement par colonne dans la section */
+}
+
+h2{
+    text-align: left ;
+    font-family: 'Josefin Sans' ;
+    font-size: 60px ;
+    color: #d1d1d1 ;
+}
+
+h4{
+    font-family: cursive ;
+    color: #f09607 ;
+}
+
+.inline{
+    display: inline-block ; /* Aligment horizontal de certains éléments */
+}
+
+.current{
+    color: #f09607 ; /* Quand l'on est sur une page, la colorise dans la navigation */
+}
+
+.col{
+    float: left ;
+}
+.right{
+    float: right ; /* Flottement à droite pour certains éléments  */
+}
+.clear{  /* Commande de clear du flottement */
+    float: none ;
+    clear: both ;
+}
+
+
+/* -------------  HEADER ------------- */
+
+header{
+  height: 80px
+}
+
+nav{
+    background-color: #d1d1d1 ;
+    width: 780px ;
+    height: 45px ;
+
+}
+
+.nav-header{
+    margin: 160px 0 0 20px ;
+}
+
+ul{
+    margin: 0 ;
+    padding: 0 ;
+}
+
+li {
+    display: inline-block ;
+    border-right: solid 2px #000000 ;
+    font-family: 'Josefin Sans' ;
+    font-size: 18px ;
+    padding: 10px 35px 13px 35px;
+}
+
+a {
+    text-align: center ;
+}
+
+ul li:hover{ /* Actif quand l'on passe la souris sur les liens */
+    background-color: rgb(25, 90, 131) ;
+}
+a{
+    color: #000000 ;
+    cursor: pointer; /* Change l'icone de la souris pour un pointeur */
+}
+
+a:hover{
+    color: #f09607 ;
+}
+
+.first-li{
+    padding-left: 63.5px ;
+    margin-left:  0 ;
+}
+
+.last-li{
+    border-right: none ;
+    padding-right: 72.44px;
+}
+
+.img-logo{
+    background-image: url(assets/img/home.jpg); /* Logo utilisés sur toutes les pages */
+    background-size: contain;
+    background-repeat: no-repeat ;
+    border: solid 2px #ffffff;
+    margin: -40px 0 0 100px ;
+}
+
+.presentation{
+    width: 240px ;
+    height: 240px ;
+}
+
+.opening{
+    float: left ;
+    background-image: linear-gradient(to left, #d1d1d1 0%, rgba(7, 42, 52, 0) 90%) ; /* Effet de dégradé avec effet de transparence pour le bandeau sous la nav */
+    width: 1144px ;
+    height: 100px ;
+    margin: 20px 0 40px 0 ;
+}
+
+.opening h1{
+    margin: 20px 0 20px 100px ;
+    font-family: Mina ;
+    font-size: 60px ;
+    color: #d68300 ;
+
+}
+
+.typo{ /* Info sur l'image qui surplombe le logo, alignée très précisément */
+    background-image: url(assets/img/typo.png);
+    background-size: contain;
+    background-repeat: no-repeat ;
+    width: 180px ;
+    height: 120px ;
+    position: relative ;
+    z-index: 2 ;
+    top: 18px ;
+    left: 56px ;
+}
+
+
+/* -------------  FOOTER ------------- */
+
+
+
+footer {
+    background-image: linear-gradient(to right bottom, #072a34 50%, #0d4e60 100%);
+    border-bottom: 2px  solid #d1d1d1 ;
+    border-right: 2px  solid #d1d1d1 ;
+    font-family: 'Josefin Sans' ;
+    color: rgb(214, 131, 0) ;
+    font-size: 16px ;
+    font-style: italic ; /* Ajout d'un italique pour le texte du footer */
+    padding: 20px ;
+    width: 380px;
+    margin: 0 0 60px 720px ;
+}
+
+
+.footer-bot{
+    margin-top: 80px ;
+}
+
+
+/* -------------  ACCUEIL ------------- */
+
+/* Pour l'index, certains éléments sont placés un peu diffèrement et possèdent des tailles un peu diffèrentes, de nouveaux attributs ont donc été créés pour placer comme il faut les diffèrents éléments du header sur cette page */
+
+.top-acc{
+    margin-top: -20px ;
+}
+
+.top-login{
+  margin: 120px 0 0 0;
+}
+
+.typo-acc{
+    width: 280px;
+    height: 160px ;
+    position: relative ;
+    top: 65px ;
+    left: 334px ;
+}
+
+.img-acc{
+    width: 380px ;
+    height: 380px ;
+    margin: 0 0 0 400px ;
+}
+
+.nav-acc{
+    height: 60px ;
+    margin: 40px 200px 20px 200px;
+}
+
+.li-acc{
+    font-family: 'Josefin Sans' ;
+    font-size: 17.5px ;
+    padding: 19px 40px 20px 39px;
+}
+
+.first-acc{
+    padding-left: 57.6px ;
+    margin-left:  0 ;
+}
+
+.last-acc{
+    border-right: none ;
+    padding-right: 52.25px;
+}
+
+.text-area{ /* Infos pour le cadre de texte de l'index */
+    margin:0 0 0 240px ;
+    text-align: center ;
+    font-family: 'Mina' ;
+    color: #ffffff ;
+    font-size: 14px ;
+    font-weight: 600 ;
+    width: 700px;
+}
+
+
+/* -------------  PRESENTATION ------------- */
+
+
+
+.pre{
+    float: left ;
+    position: relative ; /* Permet de faire superposer les images plus tard */
+    background-size: contain;
+    background-repeat: no-repeat ;
+    border: solid 1px #ffffff;
+}
+
+.img-pre-1{
+    background-image: url(assets/img/vector-night.jpg);
+    background-size: cover ;
+    left: 200px ;
+    width: 180px ;
+    height: 860px ;
+    z-index: 1 ; /* Les images de la présentation se surplombent les unes les autres à l'aide du z-index */
+}
+
+.img-pre-2{
+    background-image: url(assets/img/anthinoise-2.jpg);
+    background-size: cover ;
+    top: 140px ;
+    left: -80px ;
+    width: 220px ;
+    height: 220px ;
+    z-index: 3 ;
+}
+
+.img-pre-3{
+    background-image: url(assets/img/aischylos.png);
+    background-size: cover ;
+    top: 80px ;
+    left: -120px ;
+    width: 180px ;
+    height: 180px ;
+    z-index: 4 ;
+}
+
+.img-pre-4{
+    background-image: url(assets/img/desert.JPG);
+    background-size: cover ;
+    top: 215px ;
+    left: -340px ;
+    width: 200px ;
+    height: 200px ;
+    z-index: 2 ;
+}
+
+.frame-pre{
+    position: relative ;
+    top: -72px ;
+    left: -2px;
+    width: 654px ;
+    height: 676px ;
+    background-image: linear-gradient(to top left, #d1d1d1 0%, rgba(7, 42, 52, 0) 80%) ; /* Encore un dégradé, mais vertical et horizontal cette fois */
+    border: 2px ;
+    padding: 10px ;
+    z-index: 1 ;
+    text-align: justify; /* Permet de mettre le texte en justifié */
+    font-family: 'Mina' ;
+    font-size: 13px ;
+}
+
+.frame-pre p {
+    color: #d1d1d1 ;
+}
+
+.to-the-right{
+    margin-left: 100px ;
+}
+
+.to-the-less-right{
+    margin-left: 60px;
+}
+
+.pre-title{
+    position: relative ;
+    left: -285px ;
+    float: left;
+    text-align: left ;
+}
+
+/* Jauge de compétences, info de base */
+.gauge{
+    height: 10px ;
+    width: 100px ;
+    border: solid 1px rgb(209, 209, 209) ;
+    border-radius: 10px ;
+    position: absolute ;
+    left: 150px ;
+}
+
+/* Les lignes suivantes permettent de régler les dégradés des jauges indépendamments */
+
+.gauge-1{
+    background-image: linear-gradient(to right, rgb(25, 90, 131) 80%, #ffffff 0%) ;
+    top: 279px ;
+}
+
+.gauge-2{
+    background-image: linear-gradient(to right, rgb(25, 90, 131) 80%, #ffffff 0%) ;
+    top: 300px ;
+}
+
+.gauge-3{
+    background-image: linear-gradient(to right, rgb(25, 90, 131) 60%, #ffffff 0%) ;
+    top: 321px ;
+}
+
+.gauge-4{
+    background-image: linear-gradient(to right, rgb(25, 90, 131) 50%, #ffffff 0%) ;
+    top: 342px ;
+}
+
+.gauge-5{
+    background-image: linear-gradient(to right, rgb(25, 90, 131) 50%, #ffffff 0%) ;
+    top: 363px ;
+}
+
+.gauge-6{
+    background-image: linear-gradient(to right, rgb(25, 90, 131) 65%, #ffffff 0%) ;
+    top: 384px ;
+}
+
+.gauge-7{
+    background-image: linear-gradient(to right, rgb(25, 90, 131) 75%, #ffffff 0%) ;
+    top: 405px ;
+}
+
+
+.flag{ /* Info pour les diffèrents drapeaux */
+    background-repeat: no-repeat ;
+    background-size: cover ;
+    border: solid 1px #d1d1d1 ;
+    width: 60px ;
+    height: 40px ;
+    margin: 0 15px 20px 0;
+}
+
+.french{
+    background-image: url(assets/img/french.png) ;
+}
+
+.english{
+    background-image: url(assets/img/english.png) ;
+    width: 70px ;
+}
+
+.italian{
+    background-image: url(assets/img/italian.jpg) ;
+}
+
+.up{
+   margin-bottom: -20px;
+}
+
+.left{
+    margin-right: 160px ;
+}
+
+
+/* -------------  PORTFOLIO ------------- */
+
+
+
+.folio{
+    background-size: cover ;
+    background-repeat: no-repeat ;
+}
+
+.img-folio{
+    width: 250px;
+    margin: 0 0 20px 120px ;
+}
+
+.img-folio:hover {
+/* L'image est doublée */
+-webkit-transform:scale(2); /* Safari et Chrome */
+-moz-transform:scale(2); /* Firefox */
+-ms-transform:scale(2); /* Internet Explorer 9 */
+-o-transform:scale(2); /* Opera */
+transform:scale(2);
+}
+
+.txt-folio{
+    float: left ;
+    width: 300px ;
+    height: auto ;
+    background-color: rgb(209, 209, 209) ;
+    border: solid 2px #ffffff ;
+    padding: 10px ;
+    text-align: justify;
+    margin: 60px 20px 20px 105px ;
+    font-family: 'Mina' ;
+    font-size: 14px ;
+}
+.blue-title{
+    color: rgb(25, 90, 131) ;
+}
+
+
+/* -------------  SERVICES ------------- */
+
+
+
+.img-sect{
+    float: left ;
+    background-image: url(assets/img/nebuleuse.jpg);
+    background-size: cover ;
+    background-repeat: no-repeat ;
+    border: solid 2px #ffffff ;
+    width: 140px ;
+    height: 20px ;
+    margin: 0 0 0 120px ;
+}
+
+.frame-sect-1{
+    float: left ;
+    background-image: linear-gradient(to right bottom, #d1d1d1 0%, rgba(7, 42, 52, 0) 100%) ;
+    border: solid 2px #ffffff ;
+    width: 180px ;
+    height: 740px ;
+    margin: 44px 0 20px -164px ;
+
+    text-align: center;
+    color: #000000 ;
+    font-family: 'Mina' ;
+    font-size: 14px ;
+}
+
+.sect-2{
+    margin: 120px 0 0 80px ;
+}
+
+.frame-sect-2{
+    float: left ;
+    background-color: rgb(209, 209, 209) ;
+    border: solid 2px #ffffff ;
+    width: 240px ;
+    height: 360px ;
+    padding: 10px ;
+
+    text-align: center;
+    color: #072a34 ;
+    font-family: 'Mina' ;
+    font-size: 14px ;
+}
+
+.sect-3{
+    margin: 320px 0 0 80px ;
+}
+
+.frame-top{
+    margin: -56px 0 0 20px ;
+    width: 200px ;
+}
+.frame-bot{
+    margin: 134px 0 0 20px ;
+    width: 200px ;
+}
+
+
+/* -------------  CONTACT ------------- */
+
+
+
+.mail{
+    float: left ;
+    background-image: url(assets/img/mail.png);
+    background-size: cover ;
+    width: 80px ;
+    height: 80px ;
+    margin: 40px 0 0 00px ;
+}
+
+.phone{
+    background-image: url(assets/img/phone.png);
+    background-size: cover ;
+    width: 80px ;
+    height: 80px ;
+    float: left ;
+    margin: 80px 0 0 55px ;
+}
+
+.twitter{
+    background-image: url(assets/img/twitter.png);
+    background-size: cover ;
+    width: 80px ;
+    height: 80px ;
+    float: left ;
+    margin: 120px 0 0 55px  ;
+}
+
+.frame-contact{
+    width: 240px ;
+    height: 76px ;
+    background-color: rgb(209, 209, 209) ;
+    border: solid 2px #ffffff ;
+    float: left;
+    color: #000000 ;
+    font-family: 'Mina' ;
+    line-height: 50px;
+}
+
+.frame-1{
+    margin: 40px 0 0 20px ;
+    width: 640px ;
+    height: 540px ;
+}
+
+.frame-2{
+    margin: 120px 60px 0 20px;
+
+}
+
+.frame-3{
+    margin: 80px 0 0 20px  ;
+
+}
+
+.twit-link{
+    display: inline-block ;
+    font-family: 'Mina' ;
+    margin-left: 20px;
+    color: #000000 ;
+    border-right: none ;
+    padding: 0 ;
+}
+
+.txt-contact{
+    font-family: 'Josefin Sans' ;
+    font-size: 16px ;
+    font-weight: 700 ;
+    color: rgb(25, 90, 131);
+    margin-left: 10px ;
+}
+
+/* Boite pour l'écriture du mail */
+
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  resize: none ;
+}
+
+/* Bouton pour l'envoi du mail */
+input[type=submit] {
+  background-color: #4CAF50;
+  color: #ffffff;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 0 900px 0 20px ;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
