@@ -1,0 +1,65 @@
+<div class="wrapper"> <!-- Wrapper pour centrer le contenu qui a une longueur de 1240px avec un fond bleu foncé -->
+
+
+  <div class='opening'>  <!-- En dessous se trouve le titre de la page, écrit en grand en jaune dans un cadre partant d'une transparence vers un blanc/gris -->
+    <h1> Admin </h1>
+  </div>
+
+  <div class='col'> <!-- Float à gauche pour les élément de la section, le placement a été modifié entre les éléments afin de : Laisser une place logique pour l'écriture et l'envoi de mail, qui n'a pas été bien réfléchis lors de la maquette, et ensuite pour conserver tout les éléments visibles à l'écran sans avoir à scroll down -->
+
+    <h4>Liste des éléments du Portfolio</h4>
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th>ID</th>
+        <th>Date</th>
+        <th>Description</th>
+        <th>Image</th>
+        <th></th>
+        <th></th>
+      </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let data of data">
+          <td>{{ data.id }}</td>
+          <td>{{ data.date }}</td>
+          <td>{{ data.description }}</td>
+          <td>{{ data.img}}</td>
+          <td><button type="button" class="btn btn-success" (click)="selectData(data)">Modifier</button></td>
+          <td><button button type="submit" class="btn btn-danger" (click)="deleteData(data.id)">Supprimer</button></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h4 class="gap">Ajouter/modifier un élément</h4>
+
+      <form #f = "ngForm">
+
+        <div class="form-group float-right">
+          <input type="button" class="btn btn-primary" (click)="createOrUpdateData(f)" value="Envoyer">
+        </div>
+
+        <div class="form-group">
+
+          <td>Date</td>
+          <input type="date" name="date" [(ngModel)] = "selectedData.date">
+        </div>
+
+        <div class="form-group">
+
+           <td>Description</td>
+           <textarea type="text" name="description" [(ngModel)] = "selectedData.description"></textarea>
+        </div>
+
+        <div class="form-group">
+            <td>Image </td>
+            <input type="file" #myImage name="img" [(ngModel)] = "selectedData.img">
+        </div>
+
+      </form>
+
+  </div>
+</div>
+
+<router-outlet></router-outlet>

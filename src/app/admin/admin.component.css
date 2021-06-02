@@ -1,0 +1,28 @@
+@import url('C:/Users/fatoj/portfolio/node_modules/bootstrap/dist/css/bootstrap.min.css');
+
+button{
+    background: rgb(1, 29, 51);
+    border-color: transparent;
+    color: #fff;
+    cursor: pointer;
+    margin: 20px 0 20px 40px;
+}
+
+th,td {
+  color: #d1d1d1;
+}
+
+.admin-image{
+object-fit: cover ;
+width: 80px;
+height: 80px;
+}
+
+h1{
+font-size: 56px;
+margin: 20px 0 20px 100px ;
+}
+
+.gap{
+  margin-top:40px;
+}

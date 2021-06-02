@@ -1,0 +1,83 @@
+<div class="wrapper"> <!-- Wrapper pour centrer le contenu qui a une longueur de 1240px avec un fond bleu foncé -->
+        		<!-- Animation globale à toutes les pages, une série de petites étoiles grossissants et rétrécissants en arrière plan, pour représenter un ciel étoilé, sans que ce soit non plus trop choquant pour l'oeil  -->
+
+        <div class='star d1'></div>
+        <div class='star d2'></div>
+        <div class='star d4'></div>
+        <div class='star d5'></div>
+        <div class='star d6'></div>
+        <div class='star d9'></div>
+        <div class='star d10'></div>
+        <div class='star d14'></div>
+        <div class='star d16'></div>
+        <div class='star d17'></div>
+
+    <header>   		<!--  Header de la page, il est constitué d'abord d'une image, originellement appelée h4 sur ma maquette, mais que j'ai finalement transformée en une image fixe afin de créer moi même une police un peu plus personnalisée à ce que j'avais en tête, surmontant le logo, avec à droite une navigation qui mène vers les cinq pages du site, les liens devinnent jaune et le fond bleu lorsque l'on passe sa souris dessus.   -->
+
+        <div class='typo'></div>
+            <a href="index.html" class='img-logo presentation col'></a>
+
+        <nav class='nav-header col'>
+            <ul>
+                <li class='first-li'><a routerLink="/home" routerLinkActive="active">Accueil</a></li>
+                <li><a routerLink="/presentation" routerLinkActive="active">Présentation</a></li>
+                <li><a routerLink="/portfolio" routerLinkActive="active">Portfolio</a></li>
+                <li><a routerLink="/services" routerLinkActive="active">Services</a></li>
+                <li class='last-li'><a class='current' routerLink="/contact" routerLinkActive="active">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class='opening'>  <!-- En dessous se trouve le titre de la page, écrit en grand en jaune dans un cadre partant d'une transparence vers un blanc/gris -->
+    <h1> Contact </h1>
+    </div>
+
+
+<div class='col'> <!-- Float à gauche pour les élément de la section, le placement a été modifié entre les éléments afin de : Laisser une place logique pour l'écriture et l'envoi de mail, qui n'a pas été bien réfléchis lors de la maquette, et ensuite pour conserver tout les éléments visibles à l'écran sans avoir à scroll down -->
+
+    <div class='mail inline'></div> <!-- Icone de mail alignée avec le cadre à sa droite -->
+        <div class='frame-1 frame-contact inline' > <!-- Cadre qui comprend des zones de textes pour le prénom, nom et message -->
+
+                 <form (ngSubmit)="onSubmit(contactForm)" #contactForm="ngForm">
+                   <label>Prénom</label>
+                   <input type="text" name="name" placeholder="Votre Prénom.." ngModel required #name="ngModel">
+
+                   <label>E-mail</label>
+                   <input type="text" name="email" placeholder="E-Mail.." ngModel required #email="ngModel" ngModel [email]="true" >
+
+                   <label>Message</label>
+                   <textarea name="messages" style="height:200px" placeholder="Écrivez quelque-chose.." ngModel required #messages="ngModel"></textarea>
+
+                   <div class="">
+                     <input type="submit"  value="Envoyer">
+                   </div>
+
+                   <div class="alert-contact"  *ngIf="showMsg">
+                       <p class="alert alert-success">
+                         <strong>Votre Message a bien été envoyé !</strong>
+                       </p>
+                   </div>
+
+                 </form>
+        </div>
+  </div>
+
+
+    <div class='twitter'></div> <!-- Icone Twitter alignée avec le cadre à sa droite -->
+    <div class='frame-2 frame-contact inline'> <!-- Cadre qui comprend un texte et un lien -->
+        <div class='txt-contact inline'>
+            Twitter : <a class='twit-link' href='https://twitter.com/TrifilettiThom1' target="_blank"> Trifiletti-Thomas </a>
+        </div>
+    </div>
+
+    <div class='phone'></div> <!-- Icone de téléphone alignée avec le cadre à sa droite  -->
+    <div class='frame-3 frame-contact inline'>  <!-- Cadre comprenant un texte seul  -->
+        <div class='txt-contact'>
+            GSM : +32.496.92.62.54</div>
+        </div>
+
+    <div class='clear'> </div>
+  <div style="margin-top:100px;"></div>
+  <app-footer></app-footer>
+    </div>
+
