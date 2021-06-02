@@ -1,0 +1,50 @@
+<div class="wrapper"> <!-- Wrapper pour centrer le contenu qui a une longueur de 1240px avec un fond bleu foncé -->
+        		<!-- Animation globale à toutes les pages, une série de petites étoiles grossissants et rétrécissants en arrière plan, pour représenter un ciel étoilé, sans que ce soit non plus trop choquant pour l'oeil  -->
+
+        <div class='star d1'></div>
+        <div class='star d2'></div>
+        <div class='star d4'></div>
+        <div class='star d5'></div>
+        <div class='star d6'></div>
+        <div class='star d10'></div>
+        <div class='star d11'></div>
+        <div class='star d14'></div>
+
+    <header>   		<!--  Header de la page, il est constitué d'abord d'une image, originellement appelée h4 sur ma maquette, mais que j'ai finalement transformée en une image fixe afin de créer moi même une police un peu plus personnalisée à ce que j'avais en tête, surmontant le logo, avec à droite une navigation qui mène vers les cinq pages du site, les liens devinnent jaune et le fond bleu lorsque l'on passe sa souris dessus. -->
+
+        <div class='typo'></div>
+            <a href="index.html" class='img-logo presentation col'></a>
+
+        <nav class='nav-header col'>
+          <ul>
+            <li class='first-li'><a routerLink="/home" routerLinkActive="active">Accueil</a></li>
+            <li><a routerLink="/presentation" routerLinkActive="active">Présentation</a></li>
+            <li><a class='current' routerLink="/portfolio" routerLinkActive="active">Portfolio</a></li>
+            <li><a routerLink="/services" routerLinkActive="active">Services</a></li>
+            <li class='last-li'><a  routerLink="/contact" routerLinkActive="active">Contact</a></li>
+          </ul>
+        </nav>
+
+    </header>
+
+    <div class='opening'>  <!-- En dessous se trouve le titre de la page, écrit en grand en jaune dans un cadre partant d'une transparence vers un blanc/gris -->
+    <h1> Mes créations </h1>
+    </div>
+
+<div class='clear'></div>
+
+    <section class='col'> <!-- Float à gauche pour les éléments de la section -->
+      <tr *ngFor="let data of data">
+        <div class='txt-folio'>
+          <td>{{data.description}}</td>
+       </div>
+          <td>
+            <img class ='folio img-folio' src="{{data.img}}">
+          </td>
+      </tr>
+    </section>
+
+    <div class='clear'> </div>
+      <div style="margin-top:60px;"></div>
+  <app-footer></app-footer>
+</div>
