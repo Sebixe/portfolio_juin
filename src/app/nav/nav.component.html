@@ -1,0 +1,21 @@
+<nav class="nav-login navbar navbar-expand-lg navbar-light bg-light">
+  <div class="collapse navbar-collapse">
+    <ul class="navbar-nav mr-auto">
+      <li class="first-li-nav nav-item">
+        <a class="nav-link" *ngIf="loginbtn" routerLink="home" routerLinkActive="active">Accueil</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" *ngIf="loginbtn" routerLink="authentification" routerLinkActive="active">Connexion</a>
+      </li>
+      <li class="nav-item">
+        <button type="button" *ngIf="logoutbtn" class="btn btn-block" (click)="logout()">Déconnexion</button>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" *ngIf="logoutbtn" routerLink="admin" routerLinkActive="active">Admin</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" *ngIf="logoutbtn" routerLink="registration" routerLinkActive="active">Enregistrer un administrateur</a>
+      </li>
+    </ul>
+  </div>
+</nav>

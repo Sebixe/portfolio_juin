@@ -1,0 +1,29 @@
+@import url('C:/Users/fatoj/portfolio/node_modules/bootstrap/dist/css/bootstrap.min.css');
+
+nav{
+    background-color: #d1d1d1 ;
+    width: 1920px ;
+    height: 40px ;
+}
+
+li{
+    display: inline-block ;
+    border-right: none ;
+    font-family: 'Josefin Sans' ;
+    font-size: 18px ;
+    padding: 0 ;
+    margin-right: 20px;
+}
+
+li:hover{
+   background-color: #d2d1d1;
+   padding: auto ;
+   border-radius: 10px;
+}
+
+.first-li-nav{
+  margin-left: 20px;
+}
+
+
+
