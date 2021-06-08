@@ -25,7 +25,7 @@ export class ApiService {
     }
 
   deleteData(id: number){                                                          // Supprime les données d'une ligne de la DB sur la page d'Admin
-      return this.httpClient.delete<Data>(`${this.PHP_API_SERVER}/delete.php/?id=${id}`);
+      return this.httpClient.delete<Data>(`${this.PHP_API_SERVER}/delete.php?id=${id}`);
     }
 
 }
