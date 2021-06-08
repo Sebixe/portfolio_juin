@@ -3,7 +3,6 @@ export class Data {
     date: string;
     description: string;
     img: string;
-    imageName: string;
-
+    imageName : string;
 }
 
