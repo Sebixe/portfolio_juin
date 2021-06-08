@@ -40,11 +40,21 @@ export class AdminComponent implements OnInit {
   createOrUpdateData(form){                                                   // Permet de créer ainsi que de modifier les données du portfolio
   if(this.cookieValue == '123456789azerty'){                                  // (Nécessite le cookie de Login afin de fonctionner)
       if(this.selectedData && this.selectedData.id){
-        form.value.id = this.selectedData.id;
-        this.apiService.updateData(form.value).subscribe((data: Data)=>{
-          console.log("Data updated" , data);
+        const reader = new FileReader();
+        reader.readAsDataURL(this.myImage.nativeElement.files[0]);
+        reader.onload = () => {
+
+          this.newData.id = this.selectedData.id;
+          this.newData.date = this.selectedData.date ;
+          this.newData.description = this.selectedData.description ;
+          this.newData.img = reader.result as string;
+          this.newData.imageName = this.selectedData.img ;
+
+        this.apiService.updateData(this.newData).subscribe((newData: Data)=>{
+          console.log("Data updated" , newData);
           this.loadData();
         });
+       }
       }else{
         const reader = new FileReader();                                    // Ce morceau de code permet de transformer les images en base 64 afin de les stocker et de les afficher
         reader.readAsDataURL(this.myImage.nativeElement.files[0]);

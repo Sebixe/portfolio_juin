@@ -26,7 +26,7 @@
           <td>{{ data.description }}</td>
           <td><img src="{{ data.img }}" width="100px"></td>
           <td><button type="button" class="btn btn-success" (click)="selectData(data)">Modifier</button></td>                    <!-- Boutons pour modifier et supprimer en fonction de l'id -->
-          <td><button button type="submit" class="btn btn-danger" (click)="deleteData(data.id)">Supprimer</button></td>
+          <td><button type="button" class="btn btn-danger" (click)="deleteData(data.id)">Supprimer</button></td>
         </tr>
       </tbody>
     </table>
