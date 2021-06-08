@@ -54,7 +54,6 @@ const routes: Routes = [
      path: 'footer',
      component: FooterComponent
    },
-
   { path: '',   redirectTo: 'home', pathMatch: 'full' }, // redirect to `home`
 ];
 

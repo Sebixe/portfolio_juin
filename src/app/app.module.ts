@@ -15,6 +15,7 @@ import { AdminComponent } from './admin/admin.component';
 import { AuthentificationComponent } from './authentification/authentification.component';
 import { RegisterComponent } from './register/register.component';
 
+import { CookieService } from 'ngx-cookie-service';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,7 @@ import { RegisterComponent } from './register/register.component';
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
