@@ -21,18 +21,18 @@
       </thead>
 
       <tbody>
-        <tr *ngFor="let data of data">
+        <tr *ngFor="let data of data">             <!-- Tableau de lecture des données utilisées pour la page Portfolio -->
           <td>{{ data.id }}</td>
           <td>{{ data.date }}</td>
           <td>{{ data.description }}</td>
-          <td>{{ data.img}}</td>
-          <td><button type="button" class="btn btn-success" (click)="selectData(data)">Modifier</button></td>
+          <td><img src="{{ data.img }}" width="100px"></td>
+          <td><button type="button" class="btn btn-success" (click)="selectData(data)">Modifier</button></td>                    <!-- Boutons pour modifier et supprimer en fonction de l'id -->
           <td><button button type="submit" class="btn btn-danger" (click)="deleteData(data.id)">Supprimer</button></td>
         </tr>
       </tbody>
     </table>
 
-    <h4 class="gap">Ajouter/modifier un élément</h4>
+    <h4 class="gap">Ajouter/modifier un élément</h4>  <!-- Possible de récupérer les informations avec le bouton modifier et des changer, ou bien simplement d'ajouter un nouvel élément -->
 
       <form #f = "ngForm">
 
@@ -54,7 +54,7 @@
 
         <div class="form-group">
             <td>Image </td>
-            <input type="file" #myImage name="img" [(ngModel)] = "selectedData.img">
+            <input type="file" name="img" #myImage id="image" [(ngModel)] = "selectedData.img">
         </div>
 
       </form>

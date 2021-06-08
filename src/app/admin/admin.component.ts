@@ -16,67 +16,65 @@ export class AdminComponent implements OnInit {
 
     data = [];
     selectedData: Data = { id : null, date:null, description:null, img:null, imageName:null };
-    postData: Data = { id : null, date:null, description:null, img:null, imageName:null };
-    cookieValue: string;
+    newData: Data = { id : null, date:null, description:null, img:null, imageName:null };
+    cookieValue = null ;
 
     @ViewChild('myImage') myImage: ElementRef;
 
-  constructor(private formBuilder: FormBuilder, private cookieService: CookieService, private apiService: ApiService, private authentificationService: AuthentificationService, private router: Router) {}
+  constructor(private formBuilder: FormBuilder, private cookieService: CookieService, private apiService: ApiService, private authentificationService: AuthentificationService, private router: Router) {
+  this.cookieValue = this.cookieService.get('Login');
+  }
 
   ngOnInit() {
-      this.cookieValue = this.cookieService.get('Login');
       this.loadData();
   }
 
-  loadData() {
+  loadData() {                                                                 // Récupère les données de la DB afin de les afficher sur la page
       this.apiService.readData().subscribe((data: Data[])=>{
           this.data = data;
           console.log(this.data);
       })
   }
 
-  createOrUpdateData(form){
-    if (this.cookieValue = 'thomas.trifiletti@hotmail.com' || 'jonathan.cambier@gmail.com'){
+  createOrUpdateData(form){                                                   // Permet de créer ainsi que de modifier les données du portfolio
+  if(this.cookieValue == '123456789azerty'){                                  // (Nécessite le cookie de Login afin de fonctionner)
       if(this.selectedData && this.selectedData.id){
         form.value.id = this.selectedData.id;
         this.apiService.updateData(form.value).subscribe((data: Data)=>{
-          console.log("Données mises à jour, " , data);
+          console.log("Data updated" , data);
+          this.loadData();
+        });
+      }else{
+        const reader = new FileReader();                                    // Ce morceau de code permet de transformer les images en base 64 afin de les stocker et de les afficher
+        reader.readAsDataURL(this.myImage.nativeElement.file[0]);
+        reader.onload = () => {
+
+          this.newData.date = this.selectedData.date ;
+          this.newData.description = this.selectedData.description ;
+          this.newData.img = reader.result as string;
+          this.newData.imageName = this.selectedData.img ;
+        }
+        this.apiService.createData(form.value).subscribe((newData: Data)=>{
+          console.log("Data created, ", newData);
           this.loadData();
         });
       }
-      else{
-        this.apiService.createData(form.value).subscribe((data: Data)=>{
-          console.log("Données créées, ", data);
-        });
-      }
-      const reader = new FileReader();
-      reader.readAsDataURL(this.myImage.nativeElement.files[0]);
-      reader.onload = () => {
-      this.postData.img = reader.result as string;
-      this.postData.imageName = this.selectedData.img;
-      this.postData.date = this.selectedData.date;
-      this.postData.description = this.selectedData.description;
-      this.apiService.createData(this.postData).subscribe();
-      console.log('Image en base64', this.postData);
-      this.loadData();
-      }
-    }else{
-      console.log("Tu n'as pas le droit.");
-    }
-  }
-    selectData(data: Data){
+   }else{
+      console.log('Non, tu ne peux pas');
+   }
+}
+    selectData(data: Data){                                     // Permet de sélectionner une ligne de données, nécessaire pour l'update
       this.selectedData = data;
     }
 
-    deleteData(id){
-     if (this.cookieValue = 'thomas.trifiletti@hotmail.com'){
+    deleteData(id){                                              // Supprime une donnée de la table précisée avec son id (Nécessite le cookie de Login afin de fonctionner)
+      if(this.cookieValue == '123456789azerty'){
       this.apiService.deleteData(id).subscribe((data: Data)=>{
         console.log("Données supprimées, ", data);
         this.loadData();
       });
     }else{
-           console.log("Tu n'as pas le droit.");
-         }
+      console.log('Non, tu ne peux pas');
+    }
   }
 }
-
