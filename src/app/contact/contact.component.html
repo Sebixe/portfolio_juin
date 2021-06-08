@@ -38,26 +38,19 @@
     <div class='mail inline'></div> <!-- Icone de mail alignée avec le cadre à sa droite -->
         <div class='frame-1 frame-contact inline' > <!-- Cadre qui comprend des zones de textes pour le prénom, nom et message -->
 
-                 <form (ngSubmit)="onSubmit(contactForm)" #contactForm="ngForm">
+                 <form #f = "ngForm">
                    <label>Prénom</label>
-                   <input type="text" name="name" placeholder="Votre Prénom.." ngModel required #name="ngModel">
+                   <input type="text" name="name" placeholder="Votre Prénom.." required [(ngModel)] = "selectedContact.name">
 
                    <label>E-mail</label>
-                   <input type="text" name="email" placeholder="E-Mail.." ngModel required #email="ngModel" ngModel [email]="true" >
+                   <input type="text" name="email" placeholder="E-Mail.." required [(ngModel)] = "selectedContact.email" >
 
                    <label>Message</label>
-                   <textarea name="messages" style="height:200px" placeholder="Écrivez quelque-chose.." ngModel required #messages="ngModel"></textarea>
+                   <textarea name="messages" style="height:200px" placeholder="Écrivez quelque-chose.." required [(ngModel)] = "selectedContact.message" ></textarea>
 
                    <div class="">
-                     <input type="submit"  value="Envoyer">
+                     <input type="submit" (click)="createContact(f)" value="Envoyer">
                    </div>
-
-                   <div class="alert-contact"  *ngIf="showMsg">
-                       <p class="alert alert-success">
-                         <strong>Votre Message a bien été envoyé !</strong>
-                       </p>
-                   </div>
-
                  </form>
         </div>
   </div>

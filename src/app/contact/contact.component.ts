@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormsModule, NgForm } from '@angular/forms';
-import { HttpClient,HttpHeaders } from '@angular/common/http';
+import { HttpResponse } from '@angular/common/http';
+import { MessageService} from "../shared/message/message.service";
+import { Contact } from "../shared/message/contact.model";
 
 @Component({
   selector: 'app-contact',
@@ -10,25 +12,19 @@ import { HttpClient,HttpHeaders } from '@angular/common/http';
 })
 export class ContactComponent implements OnInit {
 
-showMsg: boolean = false;
+  contact:  Contact[];
+  selectedContact: Contact = { id : null, name:null, email:null, message:null };
 
-  constructor(private http:HttpClient) {}
+  constructor( private messageService: MessageService) {}
 
-   ngOnInit(){
+   ngOnInit(): void{
    }
 
-onSubmit(contactForm: NgForm) {
-    if (contactForm.valid) {
-      const email = contactForm.value;
-      const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-      this.http.post('https://formspree.io/f/mgerklqq',
-        { name: email.name, replyto: email.email, message: email.messages },
-        { 'headers': headers }).subscribe(
-          response => {
-            console.log(response);
-            this.showMsg= true;
-          }
-        );
+createContact(form){                                                                                // Permet d'envoyer le formulaire dans la Db où il y est stocké, si l'email est incorrect, cela renvoie une erreur 400
+      this.messageService.createContact(form.value).subscribe((contact: Contact)=>{
+        console.log("Message créé, ", contact);
+
+      });
     }
-  }
+
 }
