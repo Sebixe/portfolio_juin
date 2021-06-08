@@ -2,13 +2,16 @@
   <div class="collapse navbar-collapse">
     <ul class="navbar-nav mr-auto">
       <li class="first-li-nav nav-item">
+
+        <!-- Les pages Déconnexions, Admin et Enregistrement ne sont visibles que si le compte s'est connecté auparavant. -->
+
         <a class="nav-link" *ngIf="loginbtn" routerLink="home" routerLinkActive="active">Accueil</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" *ngIf="loginbtn" routerLink="authentification" routerLinkActive="active">Connexion</a>
       </li>
       <li class="nav-item">
-        <button type="button" *ngIf="logoutbtn" class="btn btn-block" (click)="logout()">Déconnexion</button>
+        <button type="button" *ngIf="logoutbtn" class="btn btn-block"  (click)="logout()">Déconnexion</button>
       </li>
       <li class="nav-item">
         <a class="nav-link" *ngIf="logoutbtn" routerLink="admin" routerLinkActive="active">Admin</a>
