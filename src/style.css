@@ -23,7 +23,7 @@
 .star{ /* Caractéristiques des étoiles */
     width: 16px;
     height: 16px;
-    background-image: url(/assets/img/star.png);
+    background-image: url(assets/img/star.png);
     background-repeat: repeat ;
     background-size: cover ;
     margin: 120px 0 0 440px;
@@ -155,7 +155,6 @@
     75% {
         padding: 0 ;
     }
-
     100% {
         transform: translate(0,0px) ;
     }
@@ -180,7 +179,6 @@
     100% {
         opacity: 0% ;
         transform: translate(0,0px) ;
-
     }
 }
 
